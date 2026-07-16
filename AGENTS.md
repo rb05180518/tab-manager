@@ -32,7 +32,7 @@ Before doing anything technical, tell the user what they're about to get:
 
 ```bash
 git clone https://github.com/rb05180518/tab-manager.git
-cd tab-out
+cd tab-manager
 ```
 
 ---
@@ -107,4 +107,4 @@ Once the extension is loaded:
 - Saved tabs are stored in `chrome.storage.local` (persists across sessions).
 - Custom groups are also stored in `chrome.storage.local` under the `tabGroups` key.
 - 100% local. No data is sent to any external service.
-- To update: `cd tab-out && git pull`, then reload the extension in `chrome://extensions`.
+- To update: `cd tab-manager && git pull`, then reload the extension in `chrome://extensions`.
