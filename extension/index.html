@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tab Out</title>
+    <title>Tab Manager</title>
 
     <!-- Google Fonts: Newsreader (for headings/numbers) + DM Sans (for body text) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,11 +26,11 @@
           <!-- "Friday, April 4, 2026" — written by getDateDisplay() in app.js -->
           <div class="date" id="dateDisplay"></div>
         </div>
-        <!-- Sync-delete toggle: when ON, closing a tab in Tab Out also closes
+        <!-- Sync-delete toggle: when ON, closing a tab in Tab Manager also closes
          the real browser tab. Default OFF = only remove from the dashboard. -->
         <label
           class="sync-toggle"
-          title="开启后,在 Tab Out 关闭标签页会同时关闭浏览器标签页"
+          title="开启后,在 Tab Manager 关闭标签页会同时关闭浏览器标签页"
         >
           <span class="sync-toggle-label">同步关闭浏览器标签</span>
           <span class="sync-switch">
@@ -95,7 +95,7 @@
       ></div>
 
       <!-- ================================================================
-       TAB OUT DUPES BANNER — appears when you have extra Tab Out tabs open
+       Tab Manager DUPES BANNER — appears when you have extra Tab Manager tabs open
        Hidden by default; app.js shows it when dupeTabOutCount > 1
        ================================================================ -->
       <div
@@ -120,7 +120,7 @@
             </svg>
           </div>
           <div class="tab-cleanup-text">
-            你打开了 <strong id="tabOutDupeCount"></strong> 个 Tab Out
+            你打开了 <strong id="tabOutDupeCount"></strong> 个 Tab Manager
             标签页。只保留这一个?
           </div>
         </div>
@@ -239,7 +239,7 @@
                 text-decoration: underline;
                 text-underline-offset: 2px;
               "
-              >Tab Out</a
+              >Tab Manager</a
             >
             by
             <a

@@ -1,6 +1,6 @@
-# AGENTS.md -- Tab Out: Setup & Onboarding Guide for Coding Agents
+# AGENTS.md -- Tab Manager: Setup & Onboarding Guide for Coding Agents
 
-You're installing **Tab Out** for the user. Your job is not just to set it up -- it's to get them excited about using it.
+You're installing **Tab Manager** for the user. Your job is not just to set it up -- it's to get them excited about using it.
 
 ---
 
@@ -8,7 +8,7 @@ You're installing **Tab Out** for the user. Your job is not just to set it up --
 
 Before doing anything technical, tell the user what they're about to get:
 
-> **Tab Out** gives you a clean dashboard of everything you have open, grouped by domain. Click the toolbar icon to open it — your new tab page stays untouched.
+> **Tab Manager** gives you a clean dashboard of everything you have open, grouped by domain. Click the toolbar icon to open it — your new tab page stays untouched.
 >
 > Here's what makes it great:
 >
@@ -68,7 +68,7 @@ open "chrome://extensions"
 > 3. A file picker will open. **Press Cmd+Shift+G** (Mac) or **Ctrl+L** (Windows/Linux) to open the "Go to folder" bar, then **paste** the path I copied (Cmd+V / Ctrl+V) and press Enter.
 > 4. Click **"Select"** or **"Open"** and the extension will install.
 >
-> You should see "Tab Out" appear in your extensions list.
+> You should see "Tab Manager" appear in your extensions list.
 
 **Also**, open the file browser directly to the extension folder as a fallback:
 
@@ -82,7 +82,7 @@ open "chrome://extensions"
 
 Once the extension is loaded:
 
-> You're all set! Click the **Tab Out** icon in your toolbar (pin it via the puzzle piece for easy access) and you'll see Tab Out. Your normal new tab page is unchanged.
+> You're all set! Click the **Tab Manager** icon in your toolbar (pin it via the puzzle piece for easy access) and you'll see Tab Manager. Your normal new tab page is unchanged.
 >
 > Here's how it works:
 >
@@ -102,7 +102,7 @@ Once the extension is loaded:
 
 ## Key Facts
 
-- Tab Out is a pure Chrome extension. No server, no Node.js, no npm.
+- Tab Manager is a pure Chrome extension. No server, no Node.js, no npm.
 - It does **not** replace your new tab page. Click the toolbar icon to open the dashboard; new tabs behave normally.
 - Saved tabs are stored in `chrome.storage.local` (persists across sessions).
 - Custom groups are also stored in `chrome.storage.local` under the `tabGroups` key.

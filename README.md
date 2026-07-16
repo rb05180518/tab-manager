@@ -1,10 +1,10 @@
-# Tab Out
+# Tab Manager
 
 **[English](README.md)** · [简体中文](README.zh-CN.md)
 
 **Keep tabs on your tabs.**
 
-Tab Out is a Chrome extension that gives you a dashboard of everything you have open. Click the toolbar icon to open it — your new tab page stays untouched. Tabs are grouped by domain, with homepages (Gmail, X, LinkedIn, etc.) pulled into their own group. Search across all open tabs, drag tabs into custom groups, and close them with a satisfying swoosh + confetti.
+Tab Manager is a Chrome extension that gives you a dashboard of everything you have open. Click the toolbar icon to open it — your new tab page stays untouched. Tabs are grouped by domain, with homepages (Gmail, X, LinkedIn, etc.) pulled into their own group. Search across all open tabs, drag tabs into custom groups, and close them with a satisfying swoosh + confetti.
 
 No server. No account. No external API calls. Just a Chrome extension.
 
@@ -58,16 +58,16 @@ git clone https://github.com/rb05180518/tab-manager.git
 
 **3. Pin & open it**
 
-1. Click the **puzzle piece** in Chrome's toolbar and pin **Tab Out** for easy access.
-2. Click the **Tab Out** icon to open the dashboard. (Your normal new tab page is unchanged.)
+1. Click the **puzzle piece** in Chrome's toolbar and pin **Tab Manager** for easy access.
+2. Click the **Tab Manager** icon to open the dashboard. (Your normal new tab page is unchanged.)
 
 ---
 
 ## How it works
 
 ```
-You click the Tab Out toolbar icon
-  -> Tab Out shows your open tabs grouped by domain
+You click the Tab Manager toolbar icon
+  -> Tab Manager shows your open tabs grouped by domain
   -> Search box at the top filters all tabs into a flat list
   -> Create custom groups and drag tabs into them
   -> Homepages (Gmail, X, etc.) get their own group at the top

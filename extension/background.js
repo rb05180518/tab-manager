@@ -1,7 +1,7 @@
 /**
  * background.js — Service Worker for Badge Updates
  *
- * Chrome's "always-on" background script for Tab Out.
+ * Chrome's "always-on" background script for Tab Manager.
  * Its only job: keep the toolbar badge showing the current open tab count.
  *
  * Since we no longer have a server, we query chrome.tabs directly.
@@ -26,37 +26,36 @@ async function updateBadge() {
     const tabs = await chrome.tabs.query({});
 
     // Only count actual web pages — skip browser internals and extension pages
-    const count = tabs.filter(t => {
-      const url = t.url || '';
+    const count = tabs.filter((t) => {
+      const url = t.url || "";
       return (
-        !url.startsWith('chrome://') &&
-        !url.startsWith('chrome-extension://') &&
-        !url.startsWith('about:') &&
-        !url.startsWith('edge://') &&
-        !url.startsWith('brave://')
+        !url.startsWith("chrome://") &&
+        !url.startsWith("chrome-extension://") &&
+        !url.startsWith("about:") &&
+        !url.startsWith("edge://") &&
+        !url.startsWith("brave://")
       );
     }).length;
 
     // Don't show "0" — an empty badge is cleaner
-    await chrome.action.setBadgeText({ text: count > 0 ? String(count) : '' });
+    await chrome.action.setBadgeText({ text: count > 0 ? String(count) : "" });
 
     if (count === 0) return;
 
     // Pick badge color based on workload level
     let color;
     if (count <= 10) {
-      color = '#3d7a4a'; // Green — you're in control
+      color = "#3d7a4a"; // Green — you're in control
     } else if (count <= 20) {
-      color = '#b8892e'; // Amber — things are piling up
+      color = "#b8892e"; // Amber — things are piling up
     } else {
-      color = '#b35a5a'; // Red — time to focus and close some tabs
+      color = "#b35a5a"; // Red — time to focus and close some tabs
     }
 
     await chrome.action.setBadgeBackgroundColor({ color });
-
   } catch {
     // If something goes wrong, clear the badge rather than show stale data
-    chrome.action.setBadgeText({ text: '' });
+    chrome.action.setBadgeText({ text: "" });
   }
 }
 
@@ -92,10 +91,10 @@ chrome.tabs.onUpdated.addListener(() => {
 // Run once immediately when the service worker first loads
 updateBadge();
 
-// ─── Toolbar icon click — open or focus the Tab Out dashboard ─────────────────
+// ─── Toolbar icon click — open or focus the Tab Manager dashboard ─────────────────
 //
 // We no longer override the new tab page. Instead, clicking the toolbar icon
-// focuses an existing Tab Out tab if one is open, or opens a new one.
+// focuses an existing Tab Manager tab if one is open, or opens a new one.
 // This keeps "new tab" working like Chrome's default, while the dashboard is
 // only a click away.
 chrome.action.onClicked.addListener(async () => {
@@ -105,7 +104,7 @@ chrome.action.onClicked.addListener(async () => {
   try {
     const allTabs = await chrome.tabs.query({ url: dashboardUrl });
     if (allTabs.length > 0) {
-      // Focus the first existing Tab Out tab (and its window)
+      // Focus the first existing Tab Manager tab (and its window)
       const tab = allTabs[0];
       await chrome.tabs.update(tab.id, { active: true });
       await chrome.windows.update(tab.windowId, { focused: true });
@@ -115,6 +114,6 @@ chrome.action.onClicked.addListener(async () => {
     // Query failed — fall through to creating a new tab
   }
 
-  // No existing Tab Out tab — open one
-  await chrome.tabs.create({ url: 'index.html' });
+  // No existing Tab Manager tab — open one
+  await chrome.tabs.create({ url: "index.html" });
 });

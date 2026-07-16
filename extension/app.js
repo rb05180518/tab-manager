@@ -1,5 +1,5 @@
 /* ================================================================
-   Tab Out — Dashboard App (Pure Extension Edition)
+   Tab Manager — Dashboard App (Pure Extension Edition)
 
    This file is the brain of the dashboard. Now that the dashboard
    IS the extension page (not inside an iframe), it can call
@@ -28,7 +28,7 @@ let openTabs = [];
 /* ----------------------------------------------------------------
    SYNC-CLOSE SETTING
 
-   syncClose = true  → closing a tab in Tab Out also closes the real
+   syncClose = true  → closing a tab in Tab Manager also closes the real
                         browser tab (the original behaviour).
    syncClose = false → closing only removes it from the dashboard; the
                         browser tab stays open. (DEFAULT)
@@ -53,7 +53,7 @@ async function setSyncClose(value) {
  * fetchOpenTabs()
  *
  * Reads all currently open browser tabs directly from Chrome.
- * Sets the extensionId flag so we can identify Tab Out's own pages.
+ * Sets the extensionId flag so we can identify Tab Manager's own pages.
  */
 async function fetchOpenTabs() {
   try {
@@ -68,7 +68,7 @@ async function fetchOpenTabs() {
       title: t.title,
       windowId: t.windowId,
       active: t.active,
-      // Flag Tab Out's own pages so we can detect duplicate new tabs
+      // Flag Tab Manager's own pages so we can detect duplicate new tabs
       isTabOut: t.url === newtabUrl || t.url === "chrome://newtab/",
     }));
   } catch {
@@ -80,7 +80,7 @@ async function fetchOpenTabs() {
 /* ----------------------------------------------------------------
    HIDDEN TABS — the "dashboard-only close" feature
 
-   When syncClose is OFF, "closing" a tab in Tab Out only hides it from
+   When syncClose is OFF, "closing" a tab in Tab Manager only hides it from
    the dashboard; the real browser tab stays open. We track hidden URLs
    here so they don't reappear on the next render.
 
@@ -269,7 +269,7 @@ async function closeDuplicateTabs(urls, keepOne = true) {
 /**
  * closeTabOutDupes()
  *
- * Closes all duplicate Tab Out new-tab pages except the current one.
+ * Closes all duplicate Tab Manager new-tab pages except the current one.
  */
 async function closeTabOutDupes() {
   const extensionId = chrome.runtime.id;
@@ -283,7 +283,7 @@ async function closeTabOutDupes() {
 
   if (tabOutTabs.length <= 1) return;
 
-  // Keep the active Tab Out tab in the CURRENT window — that's the one the
+  // Keep the active Tab Manager tab in the CURRENT window — that's the one the
   // user is looking at right now. Falls back to any active one, then the first.
   const keep =
     tabOutTabs.find((t) => t.active && t.windowId === currentWindow.id) ||
@@ -953,7 +953,7 @@ function getRealTabs() {
 /**
  * checkTabOutDupes()
  *
- * Counts how many Tab Out pages are open. If more than 1,
+ * Counts how many Tab Manager pages are open. If more than 1,
  * shows a banner offering to close the extras.
  */
 function checkTabOutDupes() {
@@ -1443,7 +1443,7 @@ async function renderStaticDashboard() {
   const statTabs = document.getElementById("statTabs");
   if (statTabs) statTabs.textContent = openTabs.length;
 
-  // --- Check for duplicate Tab Out tabs ---
+  // --- Check for duplicate Tab Manager tabs ---
   checkTabOutDupes();
 
   // --- Render custom groups (drag-to-group cards) ---
@@ -2137,9 +2137,9 @@ document.addEventListener("click", async (e) => {
 
   const action = actionEl.dataset.action;
 
-  // ---- Close duplicate Tab Out tabs ----
+  // ---- Close duplicate Tab Manager tabs ----
   if (action === "close-tabout-dupes") {
-    if (!(await confirmAction("关闭多余的 Tab Out 标签页?"))) return;
+    if (!(await confirmAction("关闭多余的 Tab Manager 标签页?"))) return;
     await closeTabOutDupes();
     playCloseSound();
     const banner = document.getElementById("tabOutDupeBanner");
@@ -2151,7 +2151,7 @@ document.addEventListener("click", async (e) => {
         banner.style.opacity = "1";
       }, 400);
     }
-    showToast("已关闭多余的 Tab Out 标签页");
+    showToast("已关闭多余的 Tab Manager 标签页");
     return;
   }
 
