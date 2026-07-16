@@ -1,5 +1,7 @@
 # Tab Out
 
+**[English](README.md)** · [简体中文](README.zh-CN.md)
+
 **Keep tabs on your tabs.**
 
 Tab Out is a Chrome extension that gives you a dashboard of everything you have open. Click the toolbar icon to open it — your new tab page stays untouched. Tabs are grouped by domain, with homepages (Gmail, X, LinkedIn, etc.) pulled into their own group. Search across all open tabs, drag tabs into custom groups, and close them with a satisfying swoosh + confetti.
