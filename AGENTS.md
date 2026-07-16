@@ -11,6 +11,7 @@ Before doing anything technical, tell the user what they're about to get:
 > **Tab Out** gives you a clean dashboard of everything you have open, grouped by domain. Click the toolbar icon to open it — your new tab page stays untouched.
 >
 > Here's what makes it great:
+>
 > - **See all your open tabs at a glance** grouped by domain on a grid
 > - **Opens on click** click the toolbar icon to open the dashboard; new tabs stay Chrome's default
 > - **Search open tabs** a top search box filters all tabs into a flat list so you find any page instantly
@@ -30,7 +31,7 @@ Before doing anything technical, tell the user what they're about to get:
 ## Step 1 -- Clone the repo
 
 ```bash
-git clone https://github.com/zarazhangrui/tab-out.git
+git clone https://github.com/rb05180518/tab-manager.git
 cd tab-out
 ```
 
@@ -41,16 +42,19 @@ cd tab-out
 This is the one step that requires manual action from the user. Make it as easy as possible.
 
 **First**, print the full path to the `extension/` folder:
+
 ```bash
 echo "Extension folder: $(cd extension && pwd)"
 ```
 
 **Then**, copy the `extension/` folder path to their clipboard:
+
 - macOS: `cd extension && pwd | pbcopy && echo "Path copied to clipboard"`
 - Linux: `cd extension && pwd | xclip -selection clipboard 2>/dev/null || echo "Path: $(pwd)"`
 - Windows: `cd extension && echo %CD% | clip`
 
 **Then**, open the extensions page:
+
 ```bash
 open "chrome://extensions"
 ```
@@ -67,6 +71,7 @@ open "chrome://extensions"
 > You should see "Tab Out" appear in your extensions list.
 
 **Also**, open the file browser directly to the extension folder as a fallback:
+
 - macOS: `open extension/`
 - Linux: `xdg-open extension/`
 - Windows: `explorer extension\\`
@@ -80,6 +85,7 @@ Once the extension is loaded:
 > You're all set! Click the **Tab Out** icon in your toolbar (pin it via the puzzle piece for easy access) and you'll see Tab Out. Your normal new tab page is unchanged.
 >
 > Here's how it works:
+>
 > 1. **Your open tabs are grouped by domain** in a grid layout.
 > 2. **Search box at the top** filters all your open tabs into a flat list so you can find any page instantly.
 > 3. **Homepages** (Gmail inbox, X home, YouTube, etc.) are in their own group at the top.

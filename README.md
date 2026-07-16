@@ -15,7 +15,7 @@ No server. No account. No external API calls. Just a Chrome extension.
 Send your coding agent (Claude Code, Codex, etc.) this repo and say **"install this"**:
 
 ```
-https://github.com/zarazhangrui/tab-out
+https://github.com/rb05180518/tab-manager
 ```
 
 The agent will walk you through it. Takes about 1 minute.
@@ -46,7 +46,7 @@ The agent will walk you through it. Takes about 1 minute.
 **1. Clone the repo**
 
 ```bash
-git clone https://github.com/zarazhangrui/tab-out.git
+git clone https://github.com/rb05180518/tab-manager.git
 ```
 
 **2. Load the Chrome extension**
@@ -82,11 +82,11 @@ Everything runs inside the Chrome extension. No external server, no API calls, n
 
 ## Tech stack
 
-| What | How |
-|------|-----|
-| Extension | Chrome Manifest V3 |
-| Storage | chrome.storage.local |
-| Sound | Web Audio API (synthesized, no files) |
+| What       | How                                     |
+| ---------- | --------------------------------------- |
+| Extension  | Chrome Manifest V3                      |
+| Storage    | chrome.storage.local                    |
+| Sound      | Web Audio API (synthesized, no files)   |
 | Animations | CSS transitions + JS confetti particles |
 
 ---
